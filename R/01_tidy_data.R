@@ -27,3 +27,29 @@ bat_dat <- bat_dat %>%
 # Check the changes
 class(bat_dat)
 
+bat_dat %>% 
+  filter(Chgouldii > 100) %>%
+  arrange(-Chgouldii) %>%
+  select(Site, Chgouldii) %>% View()
+
+
+bat_dat %>% 
+  top_n(10, Chgouldii)
+
+colnames(bat_dat)
+
+bat_dat %>%
+  select(contains("Nyc"))
+
+bat_dat %>%
+  select(starts_with("Dist", ignore.case = FALSE))
+
+bat_dat %>%
+  select(ends_with("land"))
+
+# Combine bat species mistakenly named with two names although they are the same
+bat_dat <- bat_dat %>% 
+  mutate(Taust_Vdarl = Taustralis + Vdarlingtoni) %>%
+  select(-Taustralis, -Vdarlingtoni)
+
+
