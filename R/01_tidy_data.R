@@ -4,4 +4,7 @@
 
 library(tidyverse)
 
+library(usethis)
 
+usethis::use_description(check_name = FALSE)
+usethis::use_mit_license()
