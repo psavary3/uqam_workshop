@@ -11,7 +11,7 @@ usethis::use_mit_license()
 
 # If you need to change name, first do that in your local folder first, then commit, then push
 
-bat_dat <- read_csv("./data/bat_dat.csv")
+bat_dat <- read_csv("./data/raw/bat_dat.csv")
 
 # Quick overview of the dataset
 glimpse(bat_dat)
@@ -51,5 +51,12 @@ bat_dat %>%
 bat_dat <- bat_dat %>% 
   mutate(Taust_Vdarl = Taustralis + Vdarlingtoni) %>%
   select(-Taustralis, -Vdarlingtoni)
+
+bat_dat %>%
+  group_by(Season, Habitat) %>%
+  summarise(mean_ab_chg = mean(Chgouldii),
+            mean_ab_chm = mean(Chmorio)) %>%
+  write_csv(file = "./data/processed/mean_ab_2sp_hab_season.csv")
+
 
 
