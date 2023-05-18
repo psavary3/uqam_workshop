@@ -16,12 +16,14 @@ bat_dat <- read_csv("./data/bat_dat.csv")
 # Quick overview of the dataset
 glimpse(bat_dat)
 
-# Convert some variables to factor
 bat_dat <- bat_dat %>%
+  # Convert some variables to factor
   mutate(Site = as.factor(Site),
          Habitat = as.factor(Habitat),
-         Season = as.factor(Season))
+         Season = as.factor(Season)) %>%
+  # Remove the 'Avoca' site
+  filter(Site != "Avoca")
+
 # Check the changes
 class(bat_dat)
-
 
