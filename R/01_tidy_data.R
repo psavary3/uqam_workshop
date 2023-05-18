@@ -3,7 +3,6 @@
 ## Workshop at UQAM by Elliot Gould
 
 library(tidyverse)
-
 library(usethis)
 
 # If using underscores in the project name
@@ -11,6 +10,9 @@ usethis::use_description(check_name = FALSE)
 usethis::use_mit_license()
 
 # If you need to change name, first do that in your local folder first, then commit, then push
+
+bat_dat <- read.csv("./data/bat_dat.csv")
+head(bat_dat)
 
 
 
